@@ -15,8 +15,9 @@ ser outro que nãofoi falado em sala).
 * Identificar potenciais erros e implementar no mínimo 3 Exceções customizadas para sua
 aplicação.
 
-## Opções de arquitetura propostas
+## Opções de arquiteturas propostas
 * Comunicação via Socket TCP
 * Comunicação via HTTP
 
 # Opção de arquitetura escolhida
+![Image](https://github.com/sealove20/pooprojeto2/blob/master/assets/poo.PNG "Http architecture")
