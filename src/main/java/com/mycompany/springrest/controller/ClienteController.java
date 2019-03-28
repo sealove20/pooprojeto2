@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
- 
+
 import com.mycompany.springrest.dao.ClienteDAO;
 import com.mycompany.springrest.model.Cliente;
 import java.util.List;
@@ -24,7 +24,7 @@ public class ClienteController
     private ClienteDAO clienteDao;
      
     //@GetMapping(path="/", produces = "application/json")
-    @RequestMapping(value = {"/",""}, method = RequestMethod.GET, 
+    @RequestMapping(value = {"/",""}, method = RequestMethod.GET,
             produces = "application/json")
     public List<Cliente> getClientes()
     {
@@ -46,23 +46,23 @@ public class ClienteController
      
     
     //@PostMapping(path= "/", consumes = "application/json", produces = "application/json")
-    @RequestMapping(value = {"/",""}, method = RequestMethod.POST, 
+    @RequestMapping(value = {"/",""}, method = RequestMethod.POST,
             produces = "application/json")
     public Cliente addCliente(@RequestBody Cliente cliente)
     {
         Integer id = clienteDao.getClientes().size();
         cliente.setId(id);
-         
+
         clienteDao.addCliente(cliente);
-         
+
         return cliente;
-        
-        // Para testar: 
-        // curl -d '{"nome":"joao sampaio", "idade": 90, "endereco": 
-        //     "endereco do joao", "cidade": "cidade do joao"}' 
-        //     -H "Content-Type: application/json" 
+
+        // Para testar:
+        // curl -d '{"nome":"joao sampaio", "idade": 90, "endereco":
+        //     "endereco do joao", "cidade": "cidade do joao"}'
+        //     -H "Content-Type: application/json"
         //     -X POST http://localhost:8090/clientes/
-        
+
     }
 }
 
