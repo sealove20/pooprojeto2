@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <title>Cadastro de Pokemons</title>
+  </head>
+  <body>
+    <div class="container">
+      <main id="main"></main>
+
+      <!-- <form action="pokemons" method="POST" target="_self"> -->
+      <label>Nome</label>
+      <input type="text" name="nome" id="nome" />
+      <label>Cp</label>
+      <input type="number" name="cp" id="cp" />
+      <label>Hp</label>
+      <input type="number" name="hp" id="hp" />
+      <label>Doce</label>
+      <input type="number" name="doce" id="doce" />
+      <label>Tipo</label>
+      <input type="text" name="tipo" id="tipo" />
+      <input type="submit" value="Submit" id="btn" />
+      <!-- </form> -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
