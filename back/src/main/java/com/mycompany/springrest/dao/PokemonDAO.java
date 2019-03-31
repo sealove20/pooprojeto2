@@ -32,6 +32,7 @@ public class PokemonDAO {
     //deletar pokemon - recebe um pokemon e o deleta
     public void deletarPokemon(Pokemon p){
         pokemons.remove(p);
+        g.gerar(pokemons, "pokemons.json");
     }
 
 }
