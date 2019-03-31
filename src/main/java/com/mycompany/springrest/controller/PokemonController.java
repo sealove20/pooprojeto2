@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mycompany.springrest.dao.TreinadorDAO;
-import com.mycompany.springrest.model.Treinador;
+import com.mycompany.springrest.dao.PokemonDAO;
+import com.mycompany.springrest.model.Pokemon;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,41 +16,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping(path = "/treinadores")
-public class TreinadorController
+@RequestMapping(path = "/pokemons")
+public class PokemonController
 {
     @Autowired
-    private TreinadorDAO treinadorDAO;
+    private PokemonDAO pokemonDAO;
 
     //@GetMapping(path="/", produces = "application/json")
     @RequestMapping(value = {"/",""}, method = RequestMethod.GET,
             produces = "application/json")
-    public List<Treinador> getTreinadores(){ return treinadorDAO.getTreinadores(); }
+    public List<Pokemon> getPokemons(){ return pokemonDAO.getPokemons(); }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET,
             produces = "application/json")
-    public Treinador getTreinador(@PathVariable("id") int id)
+    public Pokemon getPokemon(@PathVariable("id") int id)
     {
-        for (Treinador t: treinadorDAO.getTreinadores())
-            if (t.getId()==id)
-                return t;
+        for (Pokemon p: pokemonDAO.getPokemons())
+            if (p.getId()==id)
+                return p;
 
         throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Treinador não encontrado");
+                HttpStatus.NOT_FOUND, "Pokemon não encontrado");
     }
 
 
     //@PostMapping(path= "/", consumes = "application/json", produces = "application/json")
     @RequestMapping(value = {"/",""}, method = RequestMethod.POST,
             produces = "application/json")
-    public Treinador addTreinador(@RequestBody Treinador treinador)
+    public Pokemon addPokemon(@RequestBody Pokemon pokemon)
     {
-        Integer id = treinadorDAO.getTreinadores().size();
-        treinador.setId(id);
+        Integer id = pokemonDAO.getPokemons().size();
+        pokemon.setId(id);
 
-        treinadorDAO.addTreinador(treinador);
+        pokemonDAO.addPokemon(pokemon);
 
-        return treinador;
+        return pokemon;
 
         // Para testar:
         // curl -d '{"nome":"joao sampaio", "idade": 90, "endereco":
