@@ -28,6 +28,10 @@ public class PokemonDAO {
         pokemons.add(t);
         g.gerar(pokemons, "pokemons.json");
     }
-
+    
+    //deletar pokemon - recebe um pokemon e o deleta
+    public void deletarPokemon(Pokemon p){
+        pokemons.remove(p);
+    }
 
 }

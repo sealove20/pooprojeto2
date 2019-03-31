@@ -23,14 +23,13 @@ public class PokemonController
     private PokemonDAO pokemonDAO;
 
     //@GetMapping(path="/", produces = "application/json")
-    @RequestMapping(value = {"/",""}, method = RequestMethod.GET,
-            produces = "application/json")
-    public List<Pokemon> getPokemons(){ return pokemonDAO.getPokemons(); }
+    @RequestMapping(value = {"/",""}, method = RequestMethod.GET, produces = "application/json")
+    public List<Pokemon> getPokemons(){
+        return pokemonDAO.getPokemons();
+    }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET,
-            produces = "application/json")
-    public Pokemon getPokemon(@PathVariable("id") int id)
-    {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
+    public Pokemon getPokemon(@PathVariable("id") int id){
         for (Pokemon p: pokemonDAO.getPokemons())
             if (p.getId()==id)
                 return p;
@@ -38,13 +37,23 @@ public class PokemonController
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Pokemon não encontrado");
     }
-
+    
+    //deletar pokemon - recebe um id e procura o pokemon que possua o id e o passa para o DAO
+    @RequestMapping(value = {"/deletar/{id}"}, method = RequestMethod.GET, produces = "application/json")
+    public List<Pokemon> deletarPokemon(@PathVariable("id") int id){
+        for (Pokemon p: pokemonDAO.getPokemons())
+            if (p.getId()==id){
+                pokemonDAO.deletarPokemon(p);
+                return pokemonDAO.getPokemons();
+            }
+                
+        throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Pokémon com o ID "+id+" não encontrado!");
+    }
 
     //@PostMapping(path= "/", consumes = "application/json", produces = "application/json")
-    @RequestMapping(value = {"/",""}, method = RequestMethod.POST,
-            produces = "application/json")
-    public Pokemon addPokemon(@RequestBody Pokemon pokemon)
-    {
+    @RequestMapping(value = {"/",""}, method = RequestMethod.POST, produces = "application/json")
+    public Pokemon addPokemon(@RequestBody Pokemon pokemon){
         Integer id = pokemonDAO.getPokemons().size();
         pokemon.setId(id);
 
