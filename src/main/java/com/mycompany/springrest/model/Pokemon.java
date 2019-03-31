@@ -1,22 +1,30 @@
 package com.mycompany.springrest.model;
 
 public class Pokemon {
-
+    private int id;
     private String nome;
     private int cp;
     private int hp;
     private int doce;
     private String tipo;
 
-    public Pokemon(){
-    }
+    public Pokemon(){}
 
-    public Pokemon(String nome, int cp, int hp, int doce, String tipo) {
+    public Pokemon(int id, String nome, int cp, int hp, int doce, String tipo) {
+        this.id = id;
         this.nome = nome;
         this.cp = cp;
         this.hp = hp;
         this.doce = doce;
         this.tipo = tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

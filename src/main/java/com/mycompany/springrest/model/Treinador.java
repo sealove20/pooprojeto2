@@ -4,19 +4,27 @@ import java.util.ArrayList;
 
 public class Treinador {
 
+    private int id;
     private String nome;
     private int nivel;
     private String time;
     private ArrayList<Pokemon> pokemons = new ArrayList<>();
 
-    public Treinador(){
-    }
+    public Treinador(){}
 
-    public Treinador(String nome, int nivel, String time) {
+    public Treinador(int id, String nome, int nivel, String time) {
+        this.id = id;
         this.nome = nome;
         this.nivel = nivel;
         this.time = time;
-//        this.pokemons = pokemons;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
