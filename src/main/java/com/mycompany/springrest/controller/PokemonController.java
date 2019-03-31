@@ -1,7 +1,6 @@
 package com.mycompany.springrest.controller;
 
-import com.mycompany.springrest.dao.TreinadorDAO;
-import com.mycompany.springrest.model.Treinador;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mycompany.springrest.dao.PokemonDAO;
 import com.mycompany.springrest.model.Pokemon;
+
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;

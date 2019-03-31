@@ -1,16 +1,16 @@
 package com.mycompany.springrest.model;
 
 public class Pokemon {
-    private int id;
+    private long id;
     private String nome;
-    private int cp;
-    private int hp;
-    private int doce;
+    private long cp;
+    private long hp;
+    private long doce;
     private String tipo;
 
     public Pokemon(){}
 
-    public Pokemon(int id, String nome, int cp, int hp, int doce, String tipo) {
+    public Pokemon(long id, String nome, long cp, long hp, long doce, String tipo) {
         this.id = id;
         this.nome = nome;
         this.cp = cp;
@@ -19,11 +19,11 @@ public class Pokemon {
         this.tipo = tipo;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -35,27 +35,27 @@ public class Pokemon {
         this.nome = nome;
     }
 
-    public int getCp() {
+    public long getCp() {
         return cp;
     }
 
-    public void setCp(int cp) {
+    public void setCp(long cp) {
         this.cp = cp;
     }
 
-    public int getHp() {
+    public long getHp() {
         return hp;
     }
 
-    public void setHp(int hp) {
+    public void setHp(long hp) {
         this.hp = hp;
     }
 
-    public int getDoce() {
+    public long getDoce() {
         return doce;
     }
 
-    public void setDoce(int doce) {
+    public void setDoce(long doce) {
         this.doce = doce;
     }
 
