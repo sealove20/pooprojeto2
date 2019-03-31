@@ -48,17 +48,19 @@ public class JsonArquivoStrategy implements ArquivoStrategy {
 
         try {
             Object obj = parser.parse(new FileReader(caminhoArquivo)); // Lê o arquivo json
-            JSONArray jsonObject = (JSONArray) obj; // transforma a string em formato JSON
+            JSONArray arrayDePokemons = (JSONArray) obj; // transforma a string em formato ARRAY de JSON
 
-            // garimpa os dados do json
-            jsonObject.forEach(o -> {
-                JSONObject a = (JSONObject) o;
-                long id = (long) a.get("id");
-                String nome = (String) a.get("nome");
-                long cp = (long) a.get("cp");
-                long hp = (long) a.get("hp");
-                long doce = (long) a.get("doce");
-                String tipo = (String) a.get("tipo");
+            // itemDoArrayDePokemon é do tipo JSONArray
+            arrayDePokemons.forEach(itemDoArrayDePokemon -> {
+                /* aqui eu transformei ele para JSONObject, se não fizer o cast aqui, cada item do array
+                vai ser tratado como um JSONArray daí não vai ter acesso aos métodos pra pegar cada campo do obj */
+                JSONObject pokemon = (JSONObject) itemDoArrayDePokemon;
+                long id = (long) pokemon.get("id");
+                String nome = (String) pokemon.get("nome");
+                long cp = (long) pokemon.get("cp");
+                long hp = (long) pokemon.get("hp");
+                long doce = (long) pokemon.get("doce");
+                String tipo = (String) pokemon.get("tipo");
                 pokes.add(new Pokemon(id, nome, cp, hp, doce, tipo));
             });
 
