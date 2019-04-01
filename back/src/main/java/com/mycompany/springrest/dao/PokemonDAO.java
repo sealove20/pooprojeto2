@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PokemonDAO {
     private final ArrayList<Pokemon> pokemons = new ArrayList<>();
-    private GeradorRelatorio g = new GeradorRelatorio(new JsonArquivoStrategy());
+    private GeradorRelatorio g = new GeradorRelatorio(JsonArquivoStrategy.getInstance());
     PokemonDAO(){
             g.ler(pokemons, "pokemons.json");
 //        pokemons.add(new Pokemon(0,"Agumon", 1000, 500, 10, "Grama"));

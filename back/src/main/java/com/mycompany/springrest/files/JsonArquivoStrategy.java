@@ -13,6 +13,12 @@ import com.mycompany.springrest.model.Pokemon;
 
 
 public class JsonArquivoStrategy implements ArquivoStrategy {
+    private static JsonArquivoStrategy ourInstance = new JsonArquivoStrategy();
+    public static JsonArquivoStrategy getInstance() {
+        return ourInstance;
+    }
+
+    private JsonArquivoStrategy() {};
 
     @Override
     public void gerarArquivo(ArrayList<Pokemon> pokes, String caminhoArquivo) {
