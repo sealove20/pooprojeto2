@@ -6,9 +6,14 @@ async function getPokemons() {
   }
 }
 
-async function deletePokemon() {
+async function deletePokemon(id) {
+  const headers = {
+    Authorization: "Access-Control-Allow-Origin"
+  };
   try {
-    return await axios.delete("http://localhost:8090/pokemons");
+    return await axios.delete("http://localhost:8090/pokemons/" + id, {
+      headers
+    });
   } catch (error) {
     console.error(error);
   }
@@ -61,10 +66,16 @@ async function render() {
       tipo.appendChild(document.createTextNode(el.tipo));
       tr.appendChild(tipo);
       // cria nó do botão de deletar
-      let deletar = document.createElement("span");
-      deletar.appendChild(document.createTextNode("X"));
-      deletar.addEventListener("click", el => {
-        alert(el.);
+      let deletar = document.createElement("a");
+      deletar.setAttribute("href", "");
+      deletar.setAttribute("class", "btn red");
+      let icone = document.createElement("i");
+      icone.setAttribute("class", "large material-icons estilo-btn");
+      icone.appendChild(document.createTextNode("delete"));
+      deletar.appendChild(icone);
+
+      deletar.addEventListener("click", e => {
+        deletePokemon(el.id);
       });
       tr.appendChild(deletar);
       tbody.appendChild(tr);
@@ -75,3 +86,9 @@ async function render() {
 }
 
 render();
+
+// materialize initializer
+document.addEventListener("DOMContentLoaded", function() {
+  var elems = document.querySelectorAll(".fixed-action-btn");
+  var instances = M.FloatingActionButton.init(elems);
+});

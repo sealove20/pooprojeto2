@@ -63,10 +63,6 @@ public class JsonArquivoStrategy implements ArquivoStrategy {
                 String tipo = (String) pokemon.get("tipo");
                 pokes.add(new Pokemon(id, nome, cp, hp, doce, tipo));
             });
-
-
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

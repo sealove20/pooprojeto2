@@ -37,7 +37,7 @@ public class PokemonController
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE,
             produces = "application/json")
-    public @ResponseBody List<Pokemon> deletarPokemon(@PathVariable("id") int id){
+    public  List<Pokemon> deletarPokemon(@PathVariable("id") int id){
         for (Pokemon p: pokemonDAO.getPokemons())
             if (p.getId()==id){
                 pokemonDAO.deletarPokemon(p);

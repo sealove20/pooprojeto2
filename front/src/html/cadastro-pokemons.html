@@ -12,24 +12,23 @@
   </head>
   <body>
     <div class="container">
-      <main id="main"></main>
-
-      <!-- <form action="pokemons" method="POST" target="_self"> -->
-      <label>Nome</label>
-      <input type="text" name="nome" id="nome" />
-      <label>Cp</label>
-      <input type="number" name="cp" id="cp" />
-      <label>Hp</label>
-      <input type="number" name="hp" id="hp" />
-      <label>Doce</label>
-      <input type="number" name="doce" id="doce" />
-      <label>Tipo</label>
-      <input type="text" name="tipo" id="tipo" />
-      <input type="submit" value="Submit" id="btn" />
-      <!-- </form> -->
+      <h1 class="center">Cadastro de pokemons</h1>
+      <form>
+        <label>Nome</label>
+        <input type="text" name="nome" id="nome" class="validate active" />
+        <label>Cp</label>
+        <input type="number" name="cp" id="cp" />
+        <label>Hp</label>
+        <input type="number" name="hp" id="hp" />
+        <label>Doce</label>
+        <input type="number" name="doce" id="doce" />
+        <label>Tipo</label>
+        <input type="text" name="tipo" id="tipo" />
+        <input class="btn" type="submit" value="Submit" id="btn" />
+      </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/cadastro-pokemons.js"></script>
   </body>
 </html>
