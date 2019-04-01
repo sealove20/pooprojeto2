@@ -7,23 +7,24 @@ class Pokemon {
     this.tipo = tipo;
   }
 }
-
-const nome = document.querySelector("#nome");
-const cp = document.querySelector("#cp");
-const hp = document.querySelector("#hp");
-const doce = document.querySelector("#doce");
-const tipo = document.querySelector("#tipo");
-const btn = document.querySelector("#btn");
-btn.addEventListener("click", () => {
-  const poke = new Pokemon(
-    nome.value,
-    cp.value,
-    hp.value,
-    doce.value,
-    tipo.value
-  );
-  postUser(poke);
-});
+function regis() {
+  const nome = document.querySelector("#nome");
+  const cp = document.querySelector("#cp");
+  const hp = document.querySelector("#hp");
+  const doce = document.querySelector("#doce");
+  const tipo = document.querySelector("#tipo");
+  const btn = document.querySelector("#btn");
+  btn.addEventListener("click", () => {
+    const poke = new Pokemon(
+      nome.value,
+      cp.value,
+      hp.value,
+      doce.value,
+      tipo.value
+    );
+    postUser(poke);
+  });
+}
 
 async function getUser() {
   try {
@@ -58,7 +59,7 @@ async function render() {
     });
 
     console.log(dados);
-    const main = document.querySelector("#main");
+    const main = document.querySelector("main");
     dados.forEach(el => {
       let titleEl = document.createElement("p");
       titleEl.appendChild(document.createTextNode(el.nome));

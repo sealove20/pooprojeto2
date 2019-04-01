@@ -2,17 +2,13 @@ package com.mycompany.springrest.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.mycompany.springrest.dao.PokemonDAO;
 import com.mycompany.springrest.model.Pokemon;
 
 import java.util.List;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
@@ -37,6 +33,19 @@ public class PokemonController
 
         throw new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Pokemon não encontrado");
+    }
+
+    @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE,
+            produces = "application/json")
+    public @ResponseBody List<Pokemon> deletarPokemon(@PathVariable("id") int id){
+        for (Pokemon p: pokemonDAO.getPokemons())
+            if (p.getId()==id){
+                pokemonDAO.deletarPokemon(p);
+                return pokemonDAO.getPokemons();
+            }
+
+        throw new ResponseStatusException(
+                HttpStatus.NOT_FOUND, "Pokémon com o ID "+id+" não encontrado!");
     }
 
 

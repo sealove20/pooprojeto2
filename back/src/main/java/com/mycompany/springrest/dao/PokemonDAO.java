@@ -29,5 +29,10 @@ public class PokemonDAO {
         g.gerar(pokemons, "pokemons.json");
     }
 
+    public void deletarPokemon(Pokemon p) {
+        pokemons.remove(p);
+        g.gerar(pokemons, "pokemons.json");
+    }
+
 
 }
