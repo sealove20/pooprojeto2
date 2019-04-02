@@ -1,5 +1,7 @@
 package com.mycompany.springrest.dao;
 
+import com.mycompany.springrest.files.GeradorRelatorio;
+import com.mycompany.springrest.files.JsonArquivoStrategy;
 import com.mycompany.springrest.model.Treinador;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,14 +9,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class TreinadorDAO {
-
     private final ArrayList<Treinador> treinadores = new ArrayList<>();
-
+    private GeradorRelatorio g = new GeradorRelatorio(new JsonArquivoStrategy());
     TreinadorDAO(){
-        treinadores.add(new Treinador(0,"Roger", 28, "Amarelo"));
-        treinadores.add(new Treinador(1,"Cleyton", 25, "Azul"));
-        treinadores.add(new Treinador(2,"Maikon", 40, "Vermelho"));
-        treinadores.add(new Treinador(3,"Clóvis", 40, "Vermelho"));
+        g.lerTreinador(treinadores, "treinadores.json");
     }
 
     public List<Treinador> getTreinadores() {
@@ -23,6 +21,12 @@ public class TreinadorDAO {
 
     public void addTreinador(Treinador t) {
         treinadores.add(t);
+        g.gerarTreinador(treinadores, "treinadores.json");
+    }
+
+    public void deletarTreinador(Treinador t){
+        treinadores.remove(t);
+        g.gerarTreinador(treinadores, "treinadores.json");
     }
 
 }

@@ -4,22 +4,22 @@ import java.util.ArrayList;
 
 public class Treinador {
 
-    private int id;
+    private long id;
     private String nome;
-    private int nivel;
+    private long nivel;
     private String time;
     private ArrayList<Pokemon> pokemons = new ArrayList<>();
 
     public Treinador(){}
 
-    public Treinador(int id, String nome, int nivel, String time) {
+    public Treinador(long id, String nome, long nivel, String time) {
         this.id = id;
         this.nome = nome;
         this.nivel = nivel;
         this.time = time;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -35,7 +35,7 @@ public class Treinador {
         this.nome = nome;
     }
 
-    public int getNivel() {
+    public long getNivel() {
         return nivel;
     }
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <title>Cadastro de Treinadores</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center">Cadastro de Treinadores</h1>
+      <form>
+        <label>Nome</label>
+        <input type="text" name="nome" id="nome" class="validate active" />
+        <label>Nível</label>
+        <input type="number" name="nivel" id="nivel" />
+        <label>Time</label>
+        <input type="text" name="time" id="time" />
+        <input class="btn" type="submit" value="Submit" id="btn" />
+      </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/cadastro-treinadores.js"></script>
+  </body>
+</html>
